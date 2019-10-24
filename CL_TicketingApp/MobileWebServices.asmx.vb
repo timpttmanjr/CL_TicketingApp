@@ -95,4 +95,21 @@ Public Class MobileWebServices
 
     End Sub
 
+    <WebMethod()>
+    Public Sub ShippingOrderLocationInsert(ShippingOrdreID As Integer, DriverID As String, LocationTimeStamp As Date, Latitude As Decimal, Longitude As Decimal, Altitude As Decimal, Notes As String)
+        Try
+
+            Using ta As New MobileWebServicesDataSetTableAdapters.ShippingOrderLocationTableAdapter()
+                ta.Insert(ShippingOrdreID, DriverID, LocationTimeStamp, Latitude, Longitude, Altitude, Notes)
+            End Using
+
+        Catch ex As Exception
+            'My.Application.Log.WriteException(ex)
+            'Elmah.ErrorSignal.FromCurrentContext().Raise(ex)
+            'Finally
+
+        End Try
+    End Sub
+
+
 End Class
